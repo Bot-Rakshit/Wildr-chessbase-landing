@@ -1,0 +1,256 @@
+.home {
+  background: 
+    /* Top layer: Slideshow images */
+    url('../public/BGG.png'), /* First image as constant background */
+    /* Bottom layer: Constant image */
+    url('../public/BGG.png'); /* First image repeated */
+  background-size: cover;
+  background-position: center;
+  animation: slideshow 12s infinite; /* Change every 3 seconds (3 images) */
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes slideshow {
+  0%, 100% { background-image: url('../public/BGG.png'), url('../public/BGG.png'); }
+  33% { background-image: url('../public/BGANISH.png'), url('../public/BGANISH.png'); }
+  66% { background-image: url('../public/BGSAGAR.png'), url('../public/BGSAGAR.png'); }
+}
+
+.home::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1;
+}
+
+.hero-section {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: #9cd9b6; /* Soft green color for text */
+}
+
+.content-area {
+  max-width: 600px;
+  margin: auto;
+}
+
+.logo {
+  max-width: 150%;
+  height: auto;
+  margin-top: -50px;
+  margin-left: -300px;
+}
+
+.hero-title {
+  font-size: 2.5rem; /* Adjusted to a responsive size */
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+  font-size: 1.4rem;
+  margin-bottom: 2rem;
+  margin-left: -400px;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.cta-button {
+  padding: 0.75rem 1.5rem;
+  border: 2px solid #23f60f; /* Bright green border */
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #23f60f; /* Bright green text */
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  margin-left: -400px;
+}
+
+.cta-button:hover {
+  background: #23f60f; /* Bright green background on hover */
+  color: #0a0a0a;
+}
+
+.cta-signup {
+  background: #22c55e;
+  border-color: #22c55e;
+}
+
+.highlight {
+  color: #32cd32;
+  font-weight: 800;
+}
+
+.text-normal {
+  color: #fff;
+}
+
+.signup-modal, .gift-claim-form-modal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(4, 4, 4, 0.75); /* Darker overlay for better readability */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.modal-content {
+  background: #0e2b5e; /* Dark blue background for modal */
+  padding: 20px;
+  border-radius: 10px; /* Slightly larger border-radius for a softer look */
+  position: relative;
+  max-width: 500px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adding subtle shadow for depth */
+}
+
+.close-modal {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: none;
+  background: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.signup-section, .claim-section {
+  text-align: center;
+}
+
+input[type="text"], input[type="email"] {
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  width: calc(100% - 22px);
+  font-size: 1rem; /* Adjusted font size for better readability */
+}
+
+.success-message {
+  color: #32cd32; /* Matching the highlight color */
+  font-weight: bold;
+}
+
+/* Responsive Design Adjustments */
+@media (max-width: 768px) {
+  .hero-title { font-size: 2rem; }
+  .hero-cta { flex-direction: column; }
+  .hero-subtitle, .cta-button { margin-left: 0; }
+  .modal-content { width: 90%; }
+  .logo { margin-top: 0; margin-left: 0; max-width: 100%; }
+}
+
+/* Modal Content */
+.gift-claim-form-modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* Dark overlay */
+  z-index: 1000; /* High z-index to ensure it's on top */
+}
+
+/* Modal Box */
+.modal-content {
+  width: 90%;
+  max-width: 400px; /* Maximum width of the modal */
+  background: #2A3B59; /* Dark blue background */
+  padding: 20px;
+  border-radius: 8px; /* Rounded corners for the modal */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Soft shadow for depth */
+  text-align: center; /* Center align the content */
+  position: relative;
+}
+
+/* Close Button */
+.close-modal {
+  background: none;
+  border: none;
+  color: white;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Form Heading and Paragraph */
+.modal-content h2,
+.modal-content p {
+  color: #FFFFFF; /* White text for contrast */
+  margin-bottom: 15px;
+}
+
+/* Form Styles */
+.modal-content form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Input Fields */
+.modal-content input[type="text"],
+.modal-content input[type="email"] {
+  width: 100%; /* Full width of the modal */
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #dde1e7;
+  border-radius: 4px; /* Slightly rounded borders for input fields */
+  font-size: 16px;
+  color: #0a0a0a !important; /* Force text color to be black */
+  -webkit-text-fill-color: #0a0a0a !important; /* Override text fill color for autofill in Webkit browsers */
+  background-color: white; /* Larger font-size for better readability */
+}
+
+/* Claim Now Button */
+.cta-button.cta-claim-now {
+  width: 100%; /* Full width button */
+  padding: 0px 20px; /* Padding for larger, more clickable area */
+  font-size: 18px; /* Larger font-size */
+  font-weight: bold; /* Bold font for the button */
+  color: #0a0a0a; /* Dark text for the button */
+  background-color: #4CAF50; /* Green background for visibility */
+  border: none;
+  border-radius: 9px;
+  cursor: pointer;
+  transition: background-color 0.3s; 
+  margin-left: 0px;/* Smooth transition for hover effect */
+}
+
+/* Button Hover Effect */
+.cta-button.cta-claim-now:hover {
+  background-color: #367C39; /* Darker green on hover for feedback */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 600px) {
+  .modal-content {
+    width: calc(100% - 40px); /* Smaller width on small screens with padding */
+  }
+  .modal-content h2,
+  .modal-content p {
+    font-size: calc(16px + (24 - 16) * ((100vw - 300px) / (600 - 300))); /* Responsive font size */
+  }
+}
+/* write css for faq header */

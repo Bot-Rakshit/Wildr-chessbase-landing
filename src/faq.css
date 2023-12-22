@@ -1,0 +1,72 @@
+/* Base styles for the FAQ section */
+.faq-section {
+    width: 100%; /* Takes full width of the container */
+    font-family: 'Arial', sans-serif;
+    background: #000; /* Black background */
+    color: #00ff00; /* Bright green text */
+    padding: 20px;
+    box-sizing: border-box; /* Ensures padding does not add to the width */
+}
+
+/* Style for each FAQ item */
+.faq-item {
+    background: #1a1a1a; /* Slightly lighter black for contrast */
+    margin-bottom: 15px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    border: 2px solid #003300; /* Dark green border */
+}
+
+/* Style for the FAQ question */
+.faq-question {
+    font-weight: bold;
+    color: #75cd75; /* Bright green text */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer; /* Indicates the item is clickable */
+}
+
+/* Adding a plus icon for closed questions */
+.faq-question::after {
+    content: '+';
+    font-size: 24px;
+    color: #00ff00; /* Bright green icon */
+}
+
+/* Change icon and color when the question is active */
+.faq-item.active .faq-question::after {
+    content: '-';
+    color: #00ff00; /* Bright green icon */
+}
+
+/* Style for the FAQ answer */
+.faq-answer {
+    padding-top: 10px;
+    color: #ffffff; /* White text for readability */
+    border-top: 2px solid #004d00; /* Slightly brighter green border for separation */
+    margin-top: 10px;
+    display: none; /* Hidden by default */
+}
+
+/* Show answer when active */
+.faq-item.active .faq-answer {
+    display: block;
+}
+/* Style for the FAQ header */
+.faq-header {
+    text-align: center;
+    padding: 20px;
+    background-color: #000000; /* Black background for the header */
+    margin-bottom: 30px; /* Spacing between header and FAQ items */
+  }
+  
+  .faq-header h1 {
+    color: #13a613; /* Green text for the heading */
+    font-size: 2.5rem; /* Larger font size for the heading */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    font-weight: normal; /* Optional: change as per design requirement */
+  }
+  
